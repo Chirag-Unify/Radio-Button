@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { colorHexToToken, fontSizeToVariant, fontWeightToToken } = require('./unifyMappings');
+const { colorHexToToken, fontSizeToVariant, fontWeightToToken, cornerRadiusToToken } = require('./unifyMappings');
 
 // Helper: convert Figma color to hex
 function figmaColorToHex(color) {
@@ -33,13 +33,41 @@ function extractMargin(node) {
 
 // Extract border color and width
 function extractBorderColor(node) {
+  // Recursively search for the first stroke color in any child node
   if (node.strokes && node.strokes[0]?.color) {
-    return colorHexToToken[figmaColorToHex(node.strokes[0].color)] || '';
+    return colorHexToToken(figmaColorToHex(node.strokes[0].color)) || '';
+  }
+  if (node.children && node.children.length > 0) {
+    for (const child of node.children) {
+      const color = extractBorderColor(child);
+      if (color) return color;
+    }
   }
   return '';
 }
 function extractBorderWidth(node) {
   if (node.strokeWeight) return { all: `border-${node.strokeWeight}` };
+  return { all: '' };
+}
+
+// Extract border radius
+function extractBorderRadius(node) {
+  // Handles both uniform and per-corner radii
+  if (typeof node.cornerRadius === 'number') {
+    return { all: `rounded-${cornerRadiusToToken[node.cornerRadius] || node.cornerRadius}` };
+  } else if (
+    node.topLeftRadius !== undefined ||
+    node.topRightRadius !== undefined ||
+    node.bottomRightRadius !== undefined ||
+    node.bottomLeftRadius !== undefined
+  ) {
+    return {
+      topLeft: `rounded-tl-${cornerRadiusToToken[node.topLeftRadius] || node.topLeftRadius}`,
+      topRight: `rounded-tr-${cornerRadiusToToken[node.topRightRadius] || node.topRightRadius}`,
+      bottomRight: `rounded-br-${cornerRadiusToToken[node.bottomRightRadius] || node.bottomRightRadius}`,
+      bottomLeft: `rounded-bl-${cornerRadiusToToken[node.bottomLeftRadius] || node.bottomLeftRadius}`
+    };
+  }
   return { all: '' };
 }
 
@@ -92,30 +120,55 @@ function extractDefaultValue(node) {
 function extractAppearanceFromFigma(node, figmaJson) {
   let description = { color: '', variant: '', weight: '' };
   let label = { color: '', variant: '', weight: '' };
+  let foundLabel = false;
+  let foundDescription = false;
+  let secondTextColor = '';
+  let secondTextVariant = '';
+  let secondTextWeight = '';
   function searchForColorAndStyle(n) {
-    if (n.fills && n.fills.length > 0 && n.fills[0].color) {
+    // Label: first TEXT node (not supporting/description)
+    if (!foundLabel && n.type === 'TEXT' && n.fills && n.fills.length > 0 && n.fills[0].color) {
+      const hex = figmaColorToHex(n.fills[0].color);
+      label.color = colorHexToToken(hex);
+      if (n.style) {
+        if (n.style.fontSize) label.variant = fontSizeToVariant[n.style.fontSize] || `text-${n.style.fontSize}`;
+        if (n.style.fontWeight) label.weight = fontWeightToToken[n.style.fontWeight] || n.style.fontWeight;
+      }
+      foundLabel = true;
+    } else if (!foundDescription && n.type === 'TEXT' && n.fills && n.fills.length > 0 && n.fills[0].color) {
+      // Save the color, variant, and weight of the second TEXT node as a fallback for description
+      const hex = figmaColorToHex(n.fills[0].color);
+      secondTextColor = colorHexToToken(hex);
+      if (n.style) {
+        if (n.style.fontSize) secondTextVariant = fontSizeToVariant[n.style.fontSize] || `text-${n.style.fontSize}`;
+        if (n.style.fontWeight) secondTextWeight = fontWeightToToken[n.style.fontWeight] || n.style.fontWeight;
+      }
+    }
+    // Description: supporting text node (restore logic)
+    if (!foundDescription && n.type === 'TEXT' && n.name && n.name.toLowerCase().includes('support') && n.fills && n.fills.length > 0 && n.fills[0].color) {
       const hex = figmaColorToHex(n.fills[0].color);
       description.color = colorHexToToken(hex);
-    }
-    if (n.strokes && n.strokes.length > 0 && n.strokes[0].color) {
-      const hex = figmaColorToHex(n.strokes[0].color);
-      label.color = colorHexToToken(hex);
-    }
-    if (n.type === 'TEXT' && n.style) {
-      if (n.style.fontSize) {
-        label.variant = fontSizeToVariant[n.style.fontSize] || `text-${n.style.fontSize}`;
-        description.variant = fontSizeToVariant[n.style.fontSize] || `text-${n.style.fontSize}`;
+      if (n.style) {
+        if (n.style.fontSize) description.variant = fontSizeToVariant[n.style.fontSize] || `text-${n.style.fontSize}`;
+        if (n.style.fontWeight) description.weight = fontWeightToToken[n.style.fontWeight] || n.style.fontWeight;
       }
-      if (n.style.fontWeight) {
-        label.weight = fontWeightToToken[n.style.fontWeight] || n.style.fontWeight;
-        description.weight = fontWeightToToken[n.style.fontWeight] || n.style.fontWeight;
-      }
+      foundDescription = true;
     }
     if (n.children && n.children.length > 0) {
       for (const child of n.children) searchForColorAndStyle(child);
     }
   }
   searchForColorAndStyle(node);
+  // Fallback: if no supporting text node, use the color, variant, and weight of the second TEXT node if available
+  if (!description.color && secondTextColor) {
+    description.color = secondTextColor;
+  }
+  if (!description.variant && secondTextVariant) {
+    description.variant = secondTextVariant;
+  }
+  if (!description.weight && secondTextWeight) {
+    description.weight = secondTextWeight;
+  }
   return { description, label };
 }
 
@@ -136,6 +189,7 @@ function mapFigmaNodeToUnify(node, figmaJson) {
             margin: extractMargin(node),
             borderColor: extractBorderColor(node),
             borderWidth: extractBorderWidth(node),
+            borderRadius: extractBorderRadius(node),
             width: extractWidth(node),
             height: extractHeight(node)
           },

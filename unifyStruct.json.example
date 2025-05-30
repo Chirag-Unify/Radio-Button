@@ -1,4 +1,4 @@
-                    "b_gcanj": {
+"b_gcanj": {
                         "component": {
                             "componentType": "RadioButton",
                             "appearance": {
@@ -16,6 +16,9 @@
                                         "all": "m-lg"
                                     },
                                     "borderColor": "border-transparent",
+                                    "borderRadius": {
+                                        "all": "rounded-xs"
+                                    },
                                     "borderWidth": {
                                         "all": "border-2"
                                     },
