@@ -1,30 +1,47 @@
 {
-  "b_567": {
+  "b_1592": {
     "component": {
       "componentType": "Unknown",
       "appearance": {
+        "size": "md",
         "description": {
-          "color": "text-primary",
-          "variant": "tet-xxs",
-          "weight": "reglar"
+          "color": "#bf6a02",
+          "variant": "body-4",
+          "weight": "regular"
+        },
+        "styles": {
+          "padding": {
+            "all": ""
+          },
+          "margin": {
+            "all": ""
+          },
+          "borderColor": "",
+          "borderWidth": {
+            "all": "border-1"
+          },
+          "width": "w-[340px]",
+          "height": "h-[44px]"
         },
         "label": {
-          "color": "tet-primary",
-          "variant": "code-2",
+          "color": "#009951",
+          "variant": "body-4",
           "weight": "regular"
         }
       },
       "content": {
-        "label": "Text is best",
-        "description": "Text is best\n"
+        "defaultValue": "Chirag",
+        "description": "Yash Bhai best",
+        "label": "Chirag"
       }
     },
     "visibility": {
       "value": true
     },
     "dpOn": [],
-    "displayName": "RadioButton_1",
-    "id": "b_567",
+    "displayName": "Radio Field",
+    "dataSourceIds": [],
+    "id": "b_1592",
     "parentId": "root_id"
   }
 }

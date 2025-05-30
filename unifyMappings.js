@@ -53,6 +53,12 @@ const colorHexToToken = {
   // Add more mappings as needed
 };
 
+function colorHexToTokenFunc(hex) {
+  if (!hex) return '';
+  const key = hex.toLowerCase();
+  return colorHexToToken[key] || hex;
+}
+
 const fontSizeToVariant = {
   10: 'text-xxxs',
   12: 'text-xxs',
@@ -117,4 +123,10 @@ const spacingToToken = {
   auto: 'auto'
 };
 
-module.exports = { colorHexToToken, fontSizeToVariant, fontWeightToToken, cornerRadiusToToken, spacingToToken };
+module.exports = {
+  colorHexToToken: colorHexToTokenFunc,
+  fontSizeToVariant,
+  fontWeightToToken,
+  cornerRadiusToToken,
+  spacingToToken
+};

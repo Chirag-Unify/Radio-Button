@@ -2,7 +2,7 @@ const fs = require('fs');
 const axios = require('axios');
 
 const FIGMA_URL = 'https://api.qa.unifyapps.com/api-endpoint/figma/Fetch-Figma-Details';
-const FILE_URL = 'https://www.figma.com/design/huI2r4FfZauzyQRfwb2sTs/Untitled?node-id=5-67&t=nafiDHsCG1ytZJ0d-4';
+const FILE_URL = 'https://www.figma.com/design/huI2r4FfZauzyQRfwb2sTs/Untitled?node-id=15-92&t=plzQI84svxlKbIuj-4';
 
 async function fetchFigmaJson() {
     try {
