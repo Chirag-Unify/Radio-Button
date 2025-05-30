@@ -1,0 +1,30 @@
+{
+  "b_567": {
+    "component": {
+      "componentType": "Unknown",
+      "appearance": {
+        "description": {
+          "color": "text-primary",
+          "variant": "tet-xxs",
+          "weight": "reglar"
+        },
+        "label": {
+          "color": "tet-primary",
+          "variant": "code-2",
+          "weight": "regular"
+        }
+      },
+      "content": {
+        "label": "Text is best",
+        "description": "Text is best\n"
+      }
+    },
+    "visibility": {
+      "value": true
+    },
+    "dpOn": [],
+    "displayName": "RadioButton_1",
+    "id": "b_567",
+    "parentId": "root_id"
+  }
+}

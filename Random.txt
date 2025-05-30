@@ -1,0 +1,381 @@
+//Unify Json Structure for radio button
+"b_gcanj": {
+                        "component": {
+                            "componentType": "RadioButton",
+                            "appearance": {
+                                "description": {
+                                    "color": "text-secondary",
+                                    "variant": "text-xxs",
+                                    "weight": "regular"
+                                },
+                                "label": {
+                                    "color": "text-primary",
+                                    "variant": "text-sm",
+                                    "weight": "medium"
+                                }
+                            },
+                            "content": {
+                                "label": "New Radio Button"
+                            }
+                        },
+                        "visibility": {
+                            "value": true
+                        },
+                        "dpOn": [],
+                        "displayName": "RadioButton_1",
+                        "id": "b_gcanj",
+                        "parentId": "root_id"
+                    },
+
+
+//figma json structure
+{
+  "Result": {
+    "name": "Component Sheet",
+    "lastModified": "2025-05-29T13:16:41Z",
+    "thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/ac2eac9c-076a-472a-a249-e975a92659f1?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCULRAZSF5%2F20250529%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250529T000000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a45b182f2afb0a16ae45a9778ec54de31c875274402a6f27dd1cf5a830e1a28e",
+    "version": "2223555920842529153",
+    "role": "editor",
+    "editorType": "figma",
+    "linkAccess": "view",
+    "nodes": {
+      "1:5777": {
+        "document": {
+          "id": "1:5777",
+          "name": "Checkbox",
+          "type": "INSTANCE",
+          "scrollBehavior": "SCROLLS",
+          "componentId": "1:5400",
+          "componentProperties": {
+            "Checked": {
+              "value": "False",
+              "type": "VARIANT",
+              "boundVariables": {}
+            },
+            "Indeterminate": {
+              "value": "False",
+              "type": "VARIANT",
+              "boundVariables": {}
+            },
+            "Size": {
+              "value": "sm",
+              "type": "VARIANT",
+              "boundVariables": {}
+            },
+            "Type": {
+              "value": "Radio",
+              "type": "VARIANT",
+              "boundVariables": {}
+            },
+            "Text": {
+              "value": "False",
+              "type": "VARIANT",
+              "boundVariables": {}
+            },
+            "State": {
+              "value": "Default",
+              "type": "VARIANT",
+              "boundVariables": {}
+            },
+            "Hint Text": {
+              "value": "False",
+              "type": "VARIANT",
+              "boundVariables": {}
+            }
+          },
+          "overrides": [],
+          "children": [
+            {
+              "id": "I1:5777;1100:1031",
+              "name": "_Checkbox base",
+              "type": "INSTANCE",
+              "scrollBehavior": "SCROLLS",
+              "boundVariables": {
+                "rectangleCornerRadii": {
+                  "RECTANGLE_TOP_LEFT_CORNER_RADIUS": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:e7d127c6c639749da79d01114775ffac98d65d88/26416:17"
+                  },
+                  "RECTANGLE_TOP_RIGHT_CORNER_RADIUS": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:e7d127c6c639749da79d01114775ffac98d65d88/26416:17"
+                  },
+                  "RECTANGLE_BOTTOM_LEFT_CORNER_RADIUS": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:e7d127c6c639749da79d01114775ffac98d65d88/26416:17"
+                  },
+                  "RECTANGLE_BOTTOM_RIGHT_CORNER_RADIUS": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:e7d127c6c639749da79d01114775ffac98d65d88/26416:17"
+                  }
+                },
+                "fills": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:ff4d03511acfc093221dcfb96488e11676804c4e/31434:305"
+                  }
+                ],
+                "strokes": [
+                  {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:4ee7dc3dd1c9d4abf55f73eac56c7c355127a73c/32061:31"
+                  }
+                ]
+              },
+              "componentId": "1:5275",
+              "componentProperties": {
+                "Checked": {
+                  "value": "False",
+                  "type": "VARIANT",
+                  "boundVariables": {}
+                },
+                "Indeterminate": {
+                  "value": "False",
+                  "type": "VARIANT",
+                  "boundVariables": {}
+                },
+                "Size": {
+                  "value": "sm",
+                  "type": "VARIANT",
+                  "boundVariables": {}
+                },
+                "Type": {
+                  "value": "Radio",
+                  "type": "VARIANT",
+                  "boundVariables": {}
+                },
+                "State": {
+                  "value": "Default",
+                  "type": "VARIANT",
+                  "boundVariables": {}
+                }
+              },
+              "overrides": [],
+              "children": [],
+              "blendMode": "PASS_THROUGH",
+              "clipsContent": true,
+              "background": [
+                {
+                  "blendMode": "NORMAL",
+                  "type": "SOLID",
+                  "color": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "boundVariables": {
+                    "color": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:ff4d03511acfc093221dcfb96488e11676804c4e/31434:305"
+                    }
+                  }
+                }
+              ],
+              "fills": [
+                {
+                  "blendMode": "NORMAL",
+                  "type": "SOLID",
+                  "color": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "boundVariables": {
+                    "color": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:ff4d03511acfc093221dcfb96488e11676804c4e/31434:305"
+                    }
+                  }
+                }
+              ],
+              "strokes": [
+                {
+                  "blendMode": "NORMAL",
+                  "type": "SOLID",
+                  "color": {
+                    "r": 0.8117647171020508,
+                    "g": 0.8313725590705872,
+                    "b": 0.8705882430076599,
+                    "a": 1
+                  },
+                  "boundVariables": {
+                    "color": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:4ee7dc3dd1c9d4abf55f73eac56c7c355127a73c/32061:31"
+                    }
+                  }
+                }
+              ],
+              "cornerRadius": 9999,
+              "cornerSmoothing": 0,
+              "strokeWeight": 1,
+              "strokeAlign": "INSIDE",
+              "backgroundColor": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "absoluteBoundingBox": {
+                "x": 495,
+                "y": 506,
+                "width": 16,
+                "height": 16
+              },
+              "absoluteRenderBounds": {
+                "x": 495,
+                "y": 506,
+                "width": 16,
+                "height": 16
+              },
+              "constraints": {
+                "vertical": "TOP",
+                "horizontal": "LEFT"
+              },
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "layoutSizingHorizontal": "FIXED",
+              "layoutSizingVertical": "FIXED",
+              "effects": [],
+              "transitionNodeID": "1:5281",
+              "transitionDuration": 200,
+              "transitionEasing": "LINEAR",
+              "interactions": [
+                {
+                  "trigger": {
+                    "type": "MOUSE_ENTER",
+                    "deprecatedVersion": true,
+                    "delay": 0
+                  },
+                  "actions": [
+                    {
+                      "type": "NODE",
+                      "destinationId": "1:5281",
+                      "navigation": "CHANGE_TO",
+                      "transition": {
+                        "type": "DISSOLVE",
+                        "easing": {
+                          "type": "LINEAR"
+                        },
+                        "duration": 0.20000000298023224
+                      },
+                      "preserveScrollPosition": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "blendMode": "PASS_THROUGH",
+          "clipsContent": false,
+          "background": [],
+          "fills": [],
+          "strokes": [],
+          "strokeWeight": 12,
+          "strokeAlign": "CENTER",
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "layoutMode": "HORIZONTAL",
+          "counterAxisAlignItems": "CENTER",
+          "primaryAxisAlignItems": "CENTER",
+          "layoutWrap": "NO_WRAP",
+          "absoluteBoundingBox": {
+            "x": 495,
+            "y": 506,
+            "width": 16,
+            "height": 16
+          },
+          "absoluteRenderBounds": {
+            "x": 495,
+            "y": 506,
+            "width": 16,
+            "height": 16
+          },
+          "constraints": {
+            "vertical": "TOP",
+            "horizontal": "LEFT"
+          },
+          "layoutSizingHorizontal": "HUG",
+          "layoutSizingVertical": "HUG",
+          "effects": [],
+          "interactions": []
+        },
+        "components": {
+          "1:5400": {
+            "key": "2fc7a5bdeb0a15d13bb633445230ffa9bccfaca4",
+            "name": "Checked=False, Indeterminate=False, Size=sm, Type=Radio, Text=False, State=Default, Hint Text=False",
+            "description": "",
+            "remote": true,
+            "componentSetId": "1:5340",
+            "documentationLinks": []
+          },
+          "1:5275": {
+            "key": "0927a77f2fcba8a51419043b263d602b2625ea12",
+            "name": "Checked=False, Indeterminate=False, Size=sm, Type=Radio, State=Default",
+            "description": "",
+            "remote": true,
+            "componentSetId": "1:5273",
+            "documentationLinks": []
+          }
+        },
+        "componentSets": {
+          "1:5340": {
+            "key": "47e18fe17ef6f49487b76b933ee45e53112abfe1",
+            "name": "Checkbox",
+            "description": "",
+            "remote": true
+          },
+          "1:5273": {
+            "key": "a49344cf2e179350ff7ced65f043367407b2884a",
+            "name": "_Checkbox base",
+            "description": "",
+            "remote": true
+          }
+        },
+        "schemaVersion": 0,
+        "styles": {}
+      }
+    }
+  }
+}
+
+
+
+
+
+{
+ "b_gcanj": {
+                        "component": {
+                            "componentType": "RadioButton",
+                            "appearance": {
+                                "description": {
+                                    "color": "text-secondary",
+                                    "variant": "text-xxs",
+                                    "weight": "regular"
+                                },
+                                "label": {
+                                    "color": "text-primary",
+                                    "variant": "text-sm",
+                                    "weight": "medium"
+                                }
+                            },
+                            "content": {
+                                "description": "Add descriptuon\n",
+                                "label": "New Radio Button"
+                            }
+                        },
+                        "visibility": {
+                            "value": true
+                        },
+                        "dpOn": [],
+                        "displayName": "RadioButton_1",
+                        "dataSourceIds": [],
+                        "id": "b_gcanj",
+                        "parentId": "root_id"
+                    },
